@@ -1,6 +1,6 @@
 # Week 1 Project  
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -10,4 +10,7 @@ library(DataComputing)
 ```
 <!-- put your content after this line -->
 
-Here is my content!
+The territory of Alaska was recognized as a state of the United States of America on March 30, 1867. 
+* Known as Seward's folly by opponents of the purchase in reference to Secretary of State William H Seward.
+*
+*
