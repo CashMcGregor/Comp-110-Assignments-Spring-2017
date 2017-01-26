@@ -10,7 +10,12 @@ library(DataComputing)
 ```
 <!-- put your content after this line -->
 
-The territory of Alaska was recognized as a state of the United States of America on March 30, 1867. 
+The territory of Alaska was recognized as a state of the United States of America on March 30, 1867.
+
 * Known as Seward's folly by opponents of the purchase in reference to Secretary of State William H Seward.
-*
-*
+* It added more than 580,000 square miles of land to the USA.
+* Alaska Day is celebrated on October 18th because the Gregorian calendar had to be changed over from the Russian-used Julian calendar. 
+
+[AK](http://alaska.gov/)
+
+![Sweet picture](http://rdcnewscdn.realtor.com/wp-content/uploads/2015/07/alaska-cabin-northern-lights-1024x683.jpg)
