@@ -1,7 +1,6 @@
 # Week 2 Short Answer Questions
 
-## Your name should appear here!
-
+## Cash McGregor
 <!-- leave this material as is -->
 Compiled on `r date()`.
 
@@ -10,4 +9,69 @@ library(DataComputing)
 ```
 <!-- put your content after this line -->
 
-Here is my content!
+**Problem 1.1:** 
+a. Value of a Variable for a particular case. b. Quantitative Variable c. Categorical Variable d. Categorical Variable e. Quantitative Variable
+
+**Problem 1.2:** 
+The first case has a categorical variable in the third column while the second and third cases have quantitative values.
+
+**Problem 1.4:** 
+Part 1: Country, Year, and Value. Part 2: Data Table A has each case being a year. Data Table B has a country for each of the cases, while Data Table C defines a case as a country in a specific year.
+
+**Problem 1.5:**
+Part 1: There are 7 variables. Part 2: Each case is an individual airport. Part 3: faa = Categorical , name = Categorical , lat,lon = Quantitative , alt = Quantitative , tz = Quantitative , dst = Categorical , tzone = Categorical.
+
+**Problem 2.2:**
+File names should be wrapped with quotation marks.
+
+**Problem 2.3:**
+CPS = Current Population Survey
+
+**Problem 2.4:** 
+The statement does not put the dataset in quotes as an argument for the help function. Also, there is an assignment operator as an additional argument when the function help only uses one argument.
+
+**Problem 2.6:**
+Number 2: first-essay. There is a special character in the name. Number 3: “MyData”. The name itself cannot contain quotations. Number 5: small sample. There cannot be a space in the middle of the name. Number 9: sqrt(). This contains parentheses in a name, which is not allowed.
+
+**Problem 2.7:**
+Can not access.
+
+**Problem 2.8:**
+a. Improper syntax b. Improper syntax c. Invalid object name d. Unmatched quotes in character string. e. No mistake
+
+**Problem 2.9:**
+Part 1: The period and underscore can be used in a name. Part 2: Any of them can be used in a quoted character string.
+
+**Problem 2.10:**
+Part 1: 76 variables Part 2: Mass of trunk fat Part 3: 23018 Part 4: count Part 5: DEM=Democratic, LIB=Libertarian , REP=Republican , UNA=Unaffiliated
+
+**Problem 3.1:**
+1. fireplace%>% help() 2. data.table%>% fireplace() 3. summarise(fireplace = sum(2,3)) 4. data.table%>% group_by(fireplace)
+
+**Problem 3.2:**
+It has the name of the data table after %&gt;%, which should only be used directly after the data table’s name.
+
+**Problem 3.3:** 
+The second argument is in assignment form, but locating a data table from a package should be in the form of package = name .
+
+**Problem 3.4:** 
+1.data table name 2.function name 3.variable name 4.function name 5.function name 6.variable name 7.variable name 8.function name 9.name of a named argument 10.function name 11.variable name 12.function name 13.function name 14.name of a named argument 15.name of a named argument 16.function name 17.name of a named argument 18.function name 19.name of a named argument
+
+**Problem 3.5:** 
+Part 1:Brain weight in kilograms Part 2:83 Part 3:Species of an organism Part 4:Carnivore,omnivore, or herbivore.
+
+**Problem 3.6:** 
+Statement (d) does not match the others. It is separated into two different commands.
+
+**Problem 4.1:**
+One is italicized. Two is bold. There is nothing different about three or four. Five is in a grey box. Nothing is different about six. Seven is a link to another document.
+
+**Problem 4.2:** 
+a. Using the wrong symbols. b. Using the wrong symbols. c. Does not close with three `'s. d. It is all in the same line. e. Closes with four backward apostrophe’s.
+
+**Problem 4.4:** 
+1. Neither 2. Possible file 3. Neither 4. URL 5. Neither 6. URL
+
+**Problem 4.5:** 
+Done.
+
