@@ -1,6 +1,6 @@
 # Week 7 Project
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -8,6 +8,27 @@ Compiled on `r date()`.
 ```{r include = FALSE}
 library(DataComputing)
 ```
-<!-- put your content after this line -->
 
-Here is my content!
+```{r}
+library(rvest)
+library(lubridate)
+page <- "http://en.wikipedia.org/wiki/List_of_nuclear_reactors"
+table_nodes <- page %>%
+  read_html() %>%
+  html_nodes("table")
+table_list <-
+  html_table(table_nodes[1:30], fill = TRUE)
+
+```
+
+```{r}
+table = table_list[[24]]
+names(table)
+```
+
+```{r}
+new_names <- c("Name" , "Reactor No.", "Type" , "Model" ,"Status", "Net Capacity in MW", "Gross Capacity in MW", "Construction Start Date", "Commercial Operating Date" , "Closure")
+names(table) <- new_names
+table <- table[-1, ]
+table
+```

@@ -21,8 +21,21 @@ load("Library-small.rda")
   tally()
   
 ```
-
+## The above command tells us the amount of cases present in the Bks data table.
 ```{r}
   Bks%>%
   names()
 ```
+## The above command tells us the names of every variable used in the Bks data table.
+```{r}
+Inv %>%
+  group_by(Current.Status) %>%
+  tally()
+```
+## The above command creates groups of cases that have the same entry for the variable "Current.Status" and calculates the amount of cases each of those categorical variables has.
+```{r}
+Inv %>%
+  group_by(Issued.Count) %>%
+  tally()
+```
+## The above command creates groups of cases depending on the amount of times a book has been checked out. It counts the amount of times each case has been checked out.
