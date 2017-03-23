@@ -1,13 +1,88 @@
 # Week 3 Short Answer Questions
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
 
 ```{r include = FALSE}
 library(DataComputing)
+library("manipulate", lib.loc="/usr/local/lib/R/site-library")
 ```
 <!-- put your content after this line -->
+5.1
+```{r}
+library(mosaicData)
+barGraphHelper(CPS85)
+```
 
-Here is my content!
+```{r}
+View(HappinessIndex)
+```
+
+5.2
+```{r}
+WorldMap(HappinessIndex,key = "country" , fill = "corruption")
+```
+
+6.5
+States and Polling Organizations
+
+6.6
+D. Rectangle. Graphical attribute: color and text.
+
+6.7
+D. NYT poll probability for the Democratic candidate.
+
+6.8
+```{r}
+Small <-
+  NCHS %>%
+  sample_n(size=5000)
+```
+
+```{r}
+scatterGraphHelper(Small)
+``` 
+The frame is set by bmi and weight. The glyph used is a circle that can be one of two colors, depending on if the person is a smoker or not.
+
+7.1
+a. Mean()
+b. Variable1 / Variable2
+c. rank()
+d. filter()
+e. %>% datatable groupby(A,X)
+f. datatable %>% groupby(A,B) %>% summarise(value = max(X))
+
+7.4
+a. The argumenet in group_by should not have quotes around it. 
+b. summarise() should have an equals sign in the argument.
+c. The two functions are separate from each other. They will use the name of Tmp to represent two different things.
+
+7.5
+a. group_by(BabyNames, sex)
+b. filter(BabyNames, sex=="F")
+c. BabyNames %>% group_by(sex) %>% filter(count > 20)
+d. summarise(BabyNames, total = sum(count))
+e. BabyNames %>% group_by(name,count)
+
+7.7
+a. Using the piping tool %>% while using the name of the data table inside of the functions' arguments.
+b. The functions do not have a data table to pull from because the first operator is naming the product of the functions.
+c. It uses a naming argument in the middle of the chain of command.
+d. Piping tool is backwards, naming operator is backwards, and the data table is at the end of the command. 
+
+7.11
+a. sex, count, meanAge
+b. diagnosis, count, meanAge
+c. sex, diagnosis, count , meanAge
+d. Age, diagnosis, count, meanAge
+e. Age, count, meanAge
+
+7.12
+a. n()
+b. names(datatable)
+c. help(datatable)
+d. load(package)
+e. Datatable %>% group_by(variable1, variable2, ...)
+f. datatable %>% group_by(variable) %>% summarise(name = sum(quantvariable))
