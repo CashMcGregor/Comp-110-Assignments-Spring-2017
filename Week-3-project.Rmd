@@ -1,6 +1,6 @@
 # Week 3 Project
 
-## Your name should appear here! 
+## Cash McGregor 
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -9,5 +9,97 @@ Compiled on `r date()`.
 library(DataComputing)
 ```
 <!-- put your content after this line -->
+```{r}
+library(DataComputing)
+library(mosaicData)
+names(CPS85)
+names(NCHS)
+```
+# Plot 1
+1. This graphic uses a scatter plot to illustrate its data. 
 
-Here is my content!
+2. Wage, exper, sector, and married are used in this graphic.
+
+3. exper is the x-axis variable for all of the faceted graphics, wage is the y-axis for all of the graphics, sector is used to facet the graphics into 8 different graphs, and married is used to distinguish cases in each of the graphics.
+
+```{r}
+ggplot(data = CPS85, aes(x = exper, y = wage, color = married)) + geom_point() + facet_wrap( ~ sector)
+
+```
+
+
+
+
+
+# Plot 2
+1. This graphic uses a density plot as its mode of graphic.
+
+2. Sex, density, pregnancy and BMI are used from the data table.
+
+3. Sex is differentiated by color in this graphic. Density is expressed as the vertical(y) axis 
+
+
+```{r}
+ggplot(data = NCHS, aes(x = bmi)) + geom_density(aes(color = sex, fill=sex ), alpha=0.3) + facet_wrap(~ smoker)
+
+```
+
+# Diamonds
+```{r}
+library(ggplot2)
+names(diamonds)
+```
+
+```{r}
+diamonds %>% 
+  group_by(color) %>% 
+  summarise(msizecolor = mean(carat)) %>%
+  arrange(desc( msizecolor )) %>%
+  head( 1 )
+```
+1. Color J has the highest average weight of diamond.
+
+```{r}
+diamonds %>% 
+  group_by(clarity)%>% 
+  summarise(mtable = mean(table))%>% 
+  arrange(desc( mtable )) %>% 
+  head( 1 )
+
+```
+2. I1 has the largest table average among the clarities. 
+
+# Voting
+```{r}
+names(Minneapolis2013)
+```
+1. 80101
+```{r}
+Minneapolis2013 %>%
+  summarise(total = n())
+```
+2. Betsy Hodges, Don Samuels, Mark Andrew, undervote, Jackie Cherryhomes
+```{r}
+  tally(group_by(Minneapolis2013,Second),sort=TRUE)
+```
+3. 1st: 834 2nd: 10598 3rd: 19210
+```{r}
+tally(group_by(Minneapolis2013,First),sort=TRUE)
+tally(group_by(Minneapolis2013,Second),sort=TRUE)
+tally(group_by(Minneapolis2013,Third),sort=TRUE)
+```
+4. Mark Andrew, Don Samuels, Jackie Cherryhomes
+```{r}
+Betsy <- Minneapolis2013 %>%
+  filter(First == "BETSY HODGES")
+
+tally(group_by(Betsy, Second), sort=TRUE) 
+```
+5. P-6C
+```{r}
+Minneapolis2013 %>%
+  group_by(Precinct) %>%
+  summarise(Fraction = mean(First == "undervote")) %>%
+  arrange(desc(Fraction)) %>%
+  head(1)
+```
