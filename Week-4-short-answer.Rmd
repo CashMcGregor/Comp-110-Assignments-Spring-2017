@@ -1,6 +1,6 @@
 # Week 4 Short Answer Questions
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -10,4 +10,76 @@ library(DataComputing)
 ```
 <!-- put your content after this line -->
 
-Here is my content!
+8.1 
+a. 2
+b. 2
+c. 1
+d. 3
+e. 3
+f. 4
+g. 2
+h. 3
+i. 4
+
+8.2
+```{r}
+CPS85 %>%
+  ggplot(aes(x = age , y = wage, shape=married ))+geom_point()+facet_wrap(~sector)
+
+```
+
+```{r}
+CPS85 %>%
+  ggplot(aes(x = age , y = wage  ))+geom_point()+facet_grid(sex~married)
+
+```
+
+8.3
+a.
+```{r}
+CPS85 %>%
+  ggplot(aes(x=age, y=wage))+geom_point()
+```
+c.
+```{r}
+CPS85 %>%
+  ggplot(aes(x=age, y=wage, shape=sex)) + geom_point() +facet_wrap(~married)
+
+```
+d.
+```{r}
+CPS85 %>%
+  ggplot(aes(x=age, y=wage, shape=married)) + geom_point() 
+```
+
+9.1
+a. Summary Function
+b. Data Verb
+c. Comparison Expression
+d. Transformation
+e. Data Verb
+f. Summary Function
+g. Data Verb
+h. Data Verb
+i. Summary Function
+
+9.3
+```{r}
+diamonds %>% 
+  group_by(color) %>% 
+  summarise(msizecolor = mean(carat)) %>%
+  arrange(desc( msizecolor )) %>%
+  head( 1 )
+```
+1. Color J has the highest average weight of diamond.
+
+
+```{r}
+diamonds %>% 
+  group_by(clarity)%>% 
+  summarise(mtable = mean(table))%>% 
+  arrange(desc( mtable )) %>% 
+  head( 1 )
+
+```
+2. I1 has the largest table average among the clarities. 
