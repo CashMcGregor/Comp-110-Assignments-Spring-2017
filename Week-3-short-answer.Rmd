@@ -8,17 +8,16 @@ Compiled on `r date()`.
 ```{r include = FALSE}
 library(DataComputing)
 library("manipulate", lib.loc="/usr/local/lib/R/site-library")
+library(ggplot2)
+library(manipulate)
 ```
 <!-- put your content after this line -->
 5.1
 ```{r}
 library(mosaicData)
-barGraphHelper(CPS85)
+##barGraphHelper(CPS85)
 ```
 
-```{r}
-View(HappinessIndex)
-```
 
 5.2
 ```{r}
@@ -42,7 +41,7 @@ Small <-
 ```
 
 ```{r}
-scatterGraphHelper(Small)
+##scatterGraphHelper(Small)
 ``` 
 The frame is set by bmi and weight. The glyph used is a circle that can be one of two colors, depending on if the person is a smoker or not.
 
