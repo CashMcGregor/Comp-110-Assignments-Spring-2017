@@ -1,6 +1,6 @@
 # Week 4 Project
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -9,5 +9,88 @@ Compiled on `r date()`.
 library(DataComputing)
 ```
 <!-- put your content after this line -->
+1.
+```{r}
+DailyBirths <- Birthdays %>%
+  group_by(date)%>%
+  summarise(total = sum(births))
 
-Here is my content!
+ggplot(DailyBirths, aes(x=date,y=total))+geom_point(size=0.5)
+```
+
+2.
+a.
+```{r}
+WeeklyBirths <- DailyBirths %>%
+  mutate(week = week(date))%>%
+  group_by(week) %>%
+  summarise(totall = sum(total))
+
+ggplot(WeeklyBirths, aes(x=week, y=totall))+geom_line()
+```
+b.
+```{r}
+MonthlyBirths <- DailyBirths %>%
+  mutate(month = month(date)) %>%
+  group_by(month) %>%
+  summarise(totall=sum(total))
+
+ggplot(MonthlyBirths,aes(x=month, y=totall))+geom_line()
+```
+c.
+```{r}
+Julian <- DailyBirths %>%
+  mutate(JulianDay = yday(date)) %>%
+  group_by(JulianDay) %>%
+  summarise(totall = sum(total))
+
+ggplot(Julian, aes(x=JulianDay, y=totall))+geom_line()
+
+```
+
+3. 
+```{r}
+DayofWeek <- DailyBirths %>%
+  mutate(DOW = wday(date)) %>%
+  group_by(DOW) %>%
+  summarise(totall = sum(total))
+
+ggplot(DayofWeek, aes(x=DOW, y=totall))+geom_line()
+```
+4.
+```{r}
+MyTwoYears <- Birthdays %>%
+  filter(year %in% c(1981,1982)) 
+```
+
+```{r}
+MyTwoYearss <- MyTwoYears %>%
+  group_by(date) %>%
+  summarise(total = sum(births)) %>%
+  mutate(wdayy = wday(date))
+
+ggplot(MyTwoYearss, aes(x=date, y=total, color=wdayy))+geom_point()
+```
+People tend to have more kids during the week and less on the weekend.
+
+5.
+```{r}
+Holidays <- read.csv("http://tiny.cc/dcf/US-Holidays.csv") %>%
+  mutate(date = as.POSIXct(lubridate::dmy(date)))%>%
+  filter(year %in% c(1981,1982))
+  
+ggplot(MyTwoYearss, aes(x=date, y=total,color=wdayy ))+
+  geom_point() 
+  geom_vline(data=Holidays, aes(xintercept = as.numeric(date)))
+
+```
+
+```{r}
+MyTwoYearss <- MyTwoYearss %>%
+  mutate(is_holiday = date %in% Holidays$date) %>%
+  mutate(is_weekend = wdayy %in% c(0,7))
+
+ggplot(MyTwoYearss, aes(x=date,y=total, color=is_weekend, size=is_holiday))+geom_point()
+
+
+```
