@@ -19,20 +19,59 @@ Prices <-
 ```
 
 ```{r}
-Prices %>% ggplot(aes(x=date , y=close , color = companies)) +geom_point(size=0.25 , show.legend = TRUE)
+Prices %>% ggplot(aes(x=date , y=close , color = company)) +geom_line()
 
 ```
 
 ```{r}
 myTable <- data.frame(action=c("buy" , "sell") , date = ymd(c("2004-10-28" , "2013-08-06")))
 
-View(myTable)
 ```
 
 ```{r}
 profitTable <- myTable %>% 
-  inner_join(Prices)
+  left_join(Prices) %>%
+  select(action,adj_close, company) %>%
+  spread(key = action , value=adj_close)
+```
+
+```{r}
+profitTable2 <- profitTable %>%
+  mutate(Profit = sell - buy) %>%
+  mutate(PercentChange = (Profit/buy)*100) %>%
+  select(company, Profit,PercentChange) 
 
 ```
 
+```{r}
+ref_date <- ymd("2005-01-03")
+Reference <-
+  Prices %>% 
+  filter(date==ref_date) %>%
+  select(company, standard=close)
+```
+
+```{r}
+ReferencePrices <-Reference %>%
+  left_join(Prices) %>%
+  mutate(index = close/standard) %>%
+  select(company, index,date)
+
+ggplot(ReferencePrices, aes(x=date,y=index,color=company))+geom_line()
+```
+
+Dividends
+```{r}
+Dividends <- 
+  read_stock_prices(companies, what="dividends") 
+```
+
+```{r}
+DividendsFull <- Dividends %>%
+  left_join(Prices) %>%
+  mutate(DollarperDividend = dividends*close) %>%
+  select(company,date,DollarperDividend)
+
+ggplot(DividendsFull, aes(x=date,y=DollarperDividend, color = company))+geom_line()
+```
 
