@@ -1,6 +1,6 @@
 # Week 6 Project
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -8,6 +8,67 @@ Compiled on `r date()`.
 ```{r include = FALSE}
 library(DataComputing)
 ```
-<!-- put your content after this line -->
 
-Here is my content!
+```{r cache = TRUE}
+data_site <- 
+  "http://tiny.cc/dcf/2014-Q4-Trips-History-Data.rds" 
+Trips <- readRDS(gzcon(url(data_site)))
+
+```
+
+```{r}
+densityone<- Trips %>%
+  ggplot(aes(x=sdate)) + geom_density()
+
+```
+
+```{r}
+Trips %>% 
+  mutate(time_of_day = 
+       lubridate::hour(sdate) + 
+         lubridate::minute(sdate) / 60) %>%
+  ggplot(aes(x=time_of_day)) + geom_density()
+```
+
+```{r}
+Trips %>% 
+  mutate(time_of_day = 
+       lubridate::hour(sdate) + 
+         lubridate::minute(sdate) / 60) %>%
+  mutate(day_of_week = 
+       lubridate::wday(sdate))%>%
+  ggplot(aes(x=time_of_day, fill=client, alpha=0.35)) + geom_density()+facet_wrap(~ day_of_week)
+```
+
+
+```{r}
+Trips %>% 
+  mutate(time_of_day = 
+       lubridate::hour(sdate) + 
+         lubridate::minute(sdate) / 60) %>%
+  mutate(day_of_week = 
+       lubridate::wday(sdate))%>%
+  ggplot(aes(x=time_of_day, fill=client, alpha=0.35)) + geom_density(position=position_stack())+facet_wrap(~ day_of_week)
+
+```
+I think this last graph is the most powerful graphic because it shows clear transparency in order to take in the entire density plot of each kind of client. Also, the position stack makes the colors clearer and more succinct.
+```{r}
+Trips %>% 
+  mutate(time_of_day = 
+       lubridate::hour(sdate) + 
+         lubridate::minute(sdate) / 60) %>%
+  mutate(wday = ifelse(lubridate::wday(sdate) %in% c(1,7), "weekend", "weekday")) %>%
+  ggplot(aes(x=time_of_day, fill=client, alpha=0.35)) + geom_density(position=position_stack())+facet_wrap(~ wday)
+```
+
+```{r}
+Trips %>% 
+  mutate(time_of_day = 
+       lubridate::hour(sdate) + 
+         lubridate::minute(sdate) / 60) %>%
+  mutate(wday = ifelse(lubridate::wday(sdate) %in% c(1,7), "weekend", "weekday")) %>%
+  ggplot(aes(x=time_of_day, fill=wday, alpha=0.35)) + geom_density(position=position_stack())+facet_wrap(~ client)
+
+
+```
+I think it is best to fill with wday and facet with client to get a clearer picture of the effects of weekend vs weekday on the different types of clients.
