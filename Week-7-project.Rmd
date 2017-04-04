@@ -27,8 +27,12 @@ names(table)
 ```
 
 ```{r}
-new_names <- c("Name" , "Reactor No.", "Type" , "Model" ,"Status", "Net Capacity in MW", "Gross Capacity in MW", "Construction Start Date", "Commercial Operating Date" , "Closure")
+new_names <- c("Name" , "ReactorNo.", "Type" , "Model" ,"Status", "NetCapacityinMW", "GrossCapacityinMW", "ConstructionStartDate", "CommercialOperatingDate" , "Closure")
 names(table) <- new_names
 table <- table[-1, ]
-table
 ```
+
+```{r}
+table %>% ggplot(aes(x=ConstructionStartDate, y=NetCapacityinMW)) + geom_point()
+```
+
