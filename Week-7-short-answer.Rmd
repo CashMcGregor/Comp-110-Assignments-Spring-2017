@@ -1,6 +1,6 @@
 # Week 7 Short Answer Questions
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -9,5 +9,41 @@ Compiled on `r date()`.
 library(DataComputing)
 ```
 <!-- put your content after this line -->
+15.1
+```{r}
+Gauss <- lubridate::mdy("April 30th, 1777")
+Bday <- lubridate::mdy("October 28th, 1995")
+Bday - Gauss
+```
 
-Here is my content!
+```{r}
+Turing <- lubridate::mdy("06-23-1912")
+Bday - Turing
+```
+
+```{r}
+Bell <- lubridate::dmy("3 March 1847")
+Bday - Bell
+```
+
+15.2
+a.yes,no
+```{r}
+as.numeric(42,659.30)
+```
+b. no,no
+
+c. no,no
+
+
+16.1
+```{r}
+Vowel <- BabyNames %>%
+  filter(sex=="M") %>%
+  filter(grepl("[aeiouy]$", name))
+```
+
+```{r}
+Joe <- BabyNames %>%
+  filter(grepl("joe$",name))
+```
