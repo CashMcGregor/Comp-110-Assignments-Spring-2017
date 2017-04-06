@@ -1,6 +1,6 @@
 # Week 6 Short Answer Questions
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -10,4 +10,54 @@ library(DataComputing)
 ```
 <!-- put your content after this line -->
 
-Here is my content!
+12.1
+
+12.2
+
+
+12.3
+a. Summary
+b. Summary
+c. Summary
+d. Transformation
+e. Transformation
+f. Summary
+g. Transformation
+h. Neither
+
+
+13.1
+1. 7 distinct vertices
+2. 9 edges
+
+13.2
+1. A, B, C, D
+2. Table 2 and Table 3
+3. B -> C in Table 1 is not an edge.
+
+13.3
+Table 2 gives the information to recreate the network.
+
+13.4
+1. Exports is mapped to the size.
+2. pop is mapped to the shape.
+
+14.1
+```{r}
+CPS85 %>% ggplot(aes(x=sex, y=wage, color =sex))+ geom_boxplot()
+
+```
+
+14.3
+Female: 1.6
+Male: 1.7
+
+14.7
+```{r}
+CPS85 %>% ggplot(aes(x=educ, y=wage, color=sex))+geom_point()+geom_smooth()
+```
+14.10
+```{r}
+Galton %>% ggplot(aes(x=height, color=sex, fill=sex, alpha=0.5))+geom_density()
+
+```
