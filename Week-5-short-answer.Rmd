@@ -1,6 +1,6 @@
 # Week 5 Short Answer Questions
 
-## Your name should appear here!
+## Cash McGregor
 
 <!-- leave this material as is -->
 Compiled on `r date()`.
@@ -10,4 +10,38 @@ library(DataComputing)
 ```
 <!-- put your content after this line -->
 
-Here is my content!
+10.1
+Join functions must have a data table as an argument because they are using two different data tables. It can be chained to one of the data tables, but the command must incorporate an additional data table in order to combine two data tables.
+
+10.2
+The two data tables have a different amount of cases which would mean that there are too few lat and long values for the Demographics table. This will leave some cases with NA values for those two new variables. Also, since the cases are not identical, the values may be assigned to an incorrect country. 
+
+10.3
+1. I think Data Table B makes it the easiest to compare the values from 2000 to 2001 because it has the values side by side. It would be easy to create a new variable that is the difference between the two years' values. 
+2. I think Data Table B again makes it the easiest to do this. Since the cases are countries, we can add the continent for each and then group by continent. This would allow us to sum the values for each continent.
+
+11.1
+a. Version one: A case is a name for a specific gender in a specific year.
+   Version two: A case is a name in a specific year.
+   Version three: A case is a name for a specific gender.
+b. Version one is narrow while version two is wide.
+c. The sex variable is the key variable.
+d. There are NAs in Version two because the cases have become a name for a specific year instead of being a name for a specific year and gender. The gender is now two variables F and M. The presence of NAs means that some names were only used for one gender. 
+e. They contain the same information because version three has each year as a variable instead of having each case be for a specific year. This adds more variables
+but lowers the amount of cases.
+f. The year variable is spread to the variables 1912 and 2012.
+g. F and M were gathered into the variable sex. nbabies appears in version one as the key variable. The values from F and M were used to create nbabies.
+
+11.3
+
+a. A = Wide , C = Narrow
+b. B = Wide , C = Narrow
+c. A = Wide , B = Narrow
+
+11.4
+
+This gather will combine the values for sbp, value, before, and after into the variable of when, leaving a very confusing, unhelpful table.
+
+11.5
+
+
